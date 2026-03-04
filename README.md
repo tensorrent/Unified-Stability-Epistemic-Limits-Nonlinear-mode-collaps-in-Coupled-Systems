@@ -2,7 +2,7 @@
 
 **Author:** Brad Wallace  
 **GitHub:** [tensorrent](https://github.com/tensorrent)  
-**License:** [SIP License v1.1](file:///Volumes/Seagate%204tb/unified_field_theory/arc_agi/SIP_LICENSE.md)
+**License:** [SIP License v1.1](./SIP_LICENSE.md)
 
 ---
 
@@ -56,13 +56,14 @@ The repository includes a comprehensive automated test suite (`simulate_collapse
 
 ## Licensing & Compliance
 
-This software is subject to **SIP License v1.1**.
+This software, research, and associated mathematical implementations are strictly governed by the **Sovereign Integrity Protocol (SIP) License v1.1**.
 
 - **Personal/Educational Use:** Perpetual, worldwide, royalty-free.
 - **Commercial Use:** Expressly prohibited without a prior written license.
 - **Unlicensed Commercial Use:** Triggers automatic **8.4% perpetual gross profit penalty** (distrust fee + reparation fee).
 
 For commercial licensing enquiries, contact Brad Wallace via GitHub.
+
 
 ---
 *Developed for high-integrity instrumentation and sovereign automated reasoning.*
