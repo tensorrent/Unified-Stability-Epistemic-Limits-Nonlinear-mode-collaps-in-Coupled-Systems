@@ -66,6 +66,8 @@ The corrected universal law becomes $\beta_c a_m^2 = \frac{8\omega_m}{3\mathcal{
 
 \textbf{Remark.} The earlier approximation $\Gamma_{mmnn} \approx \Gamma_m$ leveraged the Cauchy--Schwarz inequality ($\Gamma_{mmnn} \le \sqrt{\Gamma_m \Gamma_n}$) and assumed adjacent modes share similar localization. This holds as an \emph{upper bound} but not as an \emph{equality}; the $\mathcal{G}_m$ factor corrects for this.
 
+\textbf{Remark (Damping).} Damping $\gamma$ enters the multiple-scales expansion at $O(\varepsilon)$ and governs the \emph{growth rate} of the parametric instability, not the \emph{threshold}. The instability boundary derived above is detuning-dominated at leading order. Including damping raises the threshold by a correction factor $\sqrt{1 + \gamma^2\omega_n^2/\Delta\omega_m^2}$, which is negligible when $\gamma \ll \Delta\omega_m/\omega_n$ (the weak-damping regime assumed throughout). For strongly damped systems, the threshold becomes $\beta_c a_m^2 = \frac{8\omega_m}{3\mathcal{G}_m\Gamma_m}\sqrt{\Delta\omega_m^2 + \gamma^2\omega_n^2}$.
+
 \section*{Appendix B: N-Node Load Redistribution Exponent}
 The load redistribution theorem scales globally as $\eta_{global}^{p/2}$. We present the explicit inequality chain here. Assume a forcing amplitude $F$ distributes onto eigenvectors $\phi_m$. By convex cost $|x|^p$, the nodal cost follows $C_i \propto (\sum_m A_m \phi_m(i))^p$.
 Applying Jensen's inequality twice---first mapping the quadratic energy $A^2$ to the convex exponent $\frac{p}{2}$, and second averaging over the modal superposition---yields the bound:
@@ -84,6 +86,9 @@ The averaging explicitly forces the exponent $p/2$ outside the sum, verifying th
 \item \textbf{RC8 noise model}: Brownian-like diffusive accumulation $\sigma\sqrt{\Delta t}$; white observation noise requires different treatment.
 \item \textbf{RC6 forbidden set}: model-defined; $\mathcal{Z}$ must correspond to a physical stability boundary for the specific system.
 \item \textbf{RC7 norm}: spectral norm $\|\cdot\|_2$; Weyl bound exact for symmetric/Hermitian $A$.
+\item \textbf{Dense spectra}: when $N_{\text{gap}}$ modes lie within $O(\Delta\omega_{\text{nl}})$ of mode $m$, collective parametric driving lowers the effective threshold by $\sim 1/N_{\text{gap}}$. The single-neighbor-dominance assumption breaks down in highly degenerate spectra.
+\item \textbf{$\eta$ exponent}: the 2-node load redistribution uses $\eta^2$ (valid for $p=4$ quartic cost). The $N$-node generalization uses $\eta^{p/2}$, which reduces to $\eta^2$ at $p=4$. For general $p$, the $N$-node exponent governs.
+\item \textbf{Anti-phase bound}: the equalization efficiency at the out-of-phase eigenfrequency $\omega_d = \sqrt{k+2\kappa}$ is $\eta = 4\kappa^2/(4\kappa^2 + 2\gamma^2\omega_d^2)$. The factor of $2$ in the damping term arises from the combined denominator $|H_s|^2 + |H_d|^2$ evaluated at resonance; earlier statements with $\gamma^2\omega^2$ in the denominator were off by this factor. Numerically verified across 7 parameter regimes.
 \end{enumerate}
 
 \section*{Licensing}
