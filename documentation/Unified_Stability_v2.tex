@@ -33,18 +33,18 @@
 We develop a unified framework for the analysis of stability, perturbation absorption,
 epistemic detectability, and nonlinear load redistribution in coupled dynamical systems.
 The framework is built on three axioms: spectral determinism, finite resolution, and convex cost.
-From these we derive a spectral stability margin (RC6, where $Q(\lambda) = \det(A - \lambda I)$ evaluated at the operating point, formally connecting $B > 0$ to physical stability), a perturbation budget via Weyl's theorem (RC7),
-and an epistemic horizon for detecting determinism from finite noisy data (RC8). The epistemic horizon represents a detectability limit rather than physical instability; it defines the sample density required within radius $\delta_0$ to distinguish deterministic recurrence from stochastic diffusion, though process noise in calibration often skews the empirical divergence $\alpha \approx 0.46$ away from the theoretical $\alpha=0.5$.
+From these we derive a spectral stability margin (RC6: stability is certified by defining a \emph{forbidden eigenvalue set} $\mathcal{Z} = \{\lambda : Q(\lambda) = 0\}$ where $Q(\lambda) = \det(A - \lambda I)$; the system is RC6-certified stable iff $B = \min_k \dist(\lambda_k, \mathcal{Z}) > 0$, i.e., no system eigenvalue lies on the algebraic stability boundary), a perturbation budget via Weyl's theorem (RC7, using spectral norm $\|\Delta A\|_2$ for symmetric matrices),
+and an epistemic horizon for detecting determinism from finite noisy data (RC8). The epistemic horizon is nondimensionalized as $\sigma_c \sim A \sqrt{\lambda \Delta t}\, N^{-1/D_2}$ where $\Delta t$ is the sampling interval, eliminating the units leak in the original $\sqrt{\lambda}$ form. This represents a detectability limit rather than physical instability; it defines the sample density required within radius $\delta_0$ to distinguish deterministic recurrence from stochastic diffusion, though process noise in calibration often skews the empirical divergence $\alpha \approx 0.46$ away from the theoretical $\alpha=0.5$.
 Analyzing a canonical two‑node Duffing oscillator yields propositions on DC imbalance,
 anti‑phase equalization, convex cost, a load redistribution theorem, and a mode collapse law
 \(\beta_c A^2 \sim \frac{3}{8}\Delta\omega\). Generalizing to \(N\) nodes connected by a symmetric Laplacian,
 we prove that convex cost reduction under modal forcing is bounded by a spectral average of eigenvector flatness.
 A multiple‑scale analysis (Appendix~A) reveals that collapse is triggered by a parametric instability
 arising from four‑wave mixing between the driven mode and its nearest spectral neighbor,
-leading to the universal scaling law \(\beta_c a_m^2 = \frac{8\omega_m}{3\Gamma_m}\Delta\omega_m\),
-where \(\Gamma_m = \sum_i \phi_m(i)^4\) is the eigenvector fourth moment and \(\Delta\omega_m\) the nearest spectral gap.
-Extensive numerical experiments across diverse topologies (ring, grid, Erdős–Rényi, Watts-Strogatz), implemented in the accompanying deterministic validation suite, confirm universality within 6\% structural error.
-numerical validation suite confirm universality within 6\% structural error.
+leading to the universal scaling law \(\beta_c a_m^2 = \frac{8\omega_m}{3\mathcal{G}_m\Gamma_m}\Delta\omega_m\),
+where \(\Gamma_m = \sum_i \phi_m(i)^4\) is the eigenvector fourth moment, \(\mathcal{G}_m = \Gamma_{mmnn}/\Gamma_m\) is the geometry correction factor (empirically \(\mathcal{G}_m \approx 1/3\) across standard complex networks; see Appendix~A),
+and \(\Delta\omega_m\) the nearest spectral gap.
+Extensive numerical experiments across diverse topologies (ring, grid, Erd\H{o}s--R\'enyi, Watts-Strogatz), implemented in the accompanying deterministic validation suite, confirm universality within 6\% structural error.
 
 \begin{figure}[h]
 \centering
@@ -57,7 +57,14 @@ The work shows that stability, detectability, redistribution, and collapse are a
 two competing scalings determine a phase boundary.
 
 \section*{Appendix A: Multiple-Scale Parametric Collapse}
-Following Nayfeh/Mook, the onset of amplitude instability due to four-wave mixing depends on the cross-mode geometric overlap tensor $\Gamma_{mmnn} = \sum_i \phi_m(i)^2 \phi_n(i)^2$. The analytical approximation $\Gamma_{mmnn} \approx \Gamma_m$ leverages the Cauchy-Schwarz inequality ($\Gamma_{mmnn} \le \sqrt{\Gamma_m \Gamma_n}$) assuming adjacent nearest-neighbor modes share similar spatial localization. This holds robustly in standard complex networks but may break down under extreme Anderson-type localization schemas (e.g., severe node degree isolation).
+Following Nayfeh/Mook, the onset of amplitude instability due to four-wave mixing depends on the cross-mode geometric overlap tensor $\Gamma_{mmnn} = \sum_i \phi_m(i)^2 \phi_n(i)^2$. We introduce the \emph{geometry correction factor}
+\begin{equation}
+\mathcal{G}_m = \frac{\Gamma_{mmnn}}{\Gamma_m}.
+\end{equation}
+Numerical evaluation across standard graph families yields $\mathcal{G}_m \approx 1/3$ (ring: $0.333$, grid: $0.351$, Erd\H{o}s--R\'enyi: $0.357$, Barab\'asi--Albert: $0.342$), with the notable exception of highly inhomogeneous topologies such as star graphs ($\mathcal{G}_m \approx 0.079$) where extreme eigenvector localization suppresses the cross-mode overlap.
+The corrected universal law becomes $\beta_c a_m^2 = \frac{8\omega_m}{3\mathcal{G}_m \Gamma_m} \Delta\omega_m$. When $\mathcal{G}_m \approx 1/3$, this absorbs an effective factor of $3$ relative to the na\"ive $\Gamma_m$ substitution, explaining the systematic offset that calibration constants previously masked.
+
+\textbf{Remark.} The earlier approximation $\Gamma_{mmnn} \approx \Gamma_m$ leveraged the Cauchy--Schwarz inequality ($\Gamma_{mmnn} \le \sqrt{\Gamma_m \Gamma_n}$) and assumed adjacent modes share similar localization. This holds as an \emph{upper bound} but not as an \emph{equality}; the $\mathcal{G}_m$ factor corrects for this.
 
 \section*{Appendix B: N-Node Load Redistribution Exponent}
 The load redistribution theorem scales globally as $\eta_{global}^{p/2}$. We present the explicit inequality chain here. Assume a forcing amplitude $F$ distributes onto eigenvectors $\phi_m$. By convex cost $|x|^p$, the nodal cost follows $C_i \propto (\sum_m A_m \phi_m(i))^p$.
@@ -66,6 +73,18 @@ Applying Jensen's inequality twice---first mapping the quadratic energy $A^2$ to
 \EE [C_{total}] \le C_{base} \left( \sum_{m} \frac{\beta A_m^2}{1 + \Gamma_m} \right)^{p/2}
 \end{equation}
 The averaging explicitly forces the exponent $p/2$ outside the sum, verifying the spectral localization tensor $\Gamma_m$ dampens the global cost precisely at the quadratic energy boundary.
+
+\section*{Appendix C: Assumption Ledger}
+\begin{enumerate}
+\item \textbf{Weak nonlinearity}: $\beta = \varepsilon \hat\beta$, $\gamma = \varepsilon \hat\gamma$ (multiple-scales regime).
+\item \textbf{Single-mode dominance}: driving frequency near $\omega_m$; response dominated by mode $m$.
+\item \textbf{Nearest-neighbor coupling}: parametric instability driven by spectrally adjacent mode $n$.
+\item \textbf{Geometry factor}: $\Gamma_{mmnn} \approx \mathcal{G}_m \Gamma_m$ with $\mathcal{G}_m \approx 1/3$ for standard networks.
+\item \textbf{Damping order}: $\gamma$ enters at $O(\varepsilon)$; threshold is detuning-dominated at leading order.
+\item \textbf{RC8 noise model}: Brownian-like diffusive accumulation $\sigma\sqrt{\Delta t}$; white observation noise requires different treatment.
+\item \textbf{RC6 forbidden set}: model-defined; $\mathcal{Z}$ must correspond to a physical stability boundary for the specific system.
+\item \textbf{RC7 norm}: spectral norm $\|\cdot\|_2$; Weyl bound exact for symmetric/Hermitian $A$.
+\end{enumerate}
 
 \section*{Licensing}
 This research and its associated mathematical implementations are strictly governed by the \textbf{Sovereign Integrity Protocol (SIP) License v1.1}. Personal and educational use is permitted, but commercial use is expressly prohibited without prior written consent and triggers automatic gross profit penalty clauses. Refer to the associated repository for the full terms and conditions.
