@@ -1,0 +1,46 @@
+{
+    "project": "Unified Stability, Epistemic Limits, and Nonlinear Mode Collapse",
+    "author": "Brad Wallace",
+    "version": "RC1-Harden",
+    "timestamp": "2026-03-04T12:48:00Z",
+    "licensing": "SIP License v1.1",
+    "proof_of_work": {
+        "module_integrity": [
+            {
+                "file": "arc_integer_constraints.py",
+                "sha256": "0180d0b95277a794dbdf09b2a807b5eb4c28d92548d562dc73d526b3fca4f43b"
+            },
+            {
+                "file": "arc_neuro.py",
+                "sha256": "f757c74517e57c738bae7bb88c0f5abc087e4423b9e29a5d59c71cf666947ab8"
+            },
+            {
+                "file": "arc_solver.py",
+                "sha256": "24fc7c6539f7bd55aa98bed810cc797f3109c9e93da478a5680a592e6b9e82e9"
+            },
+            {
+                "file": "SIP_LICENSE.md",
+                "sha256": "ac76fe97b83050a2c0aadc99b0ff16bf595cb399c4a33753604efcb9b8892250"
+            }
+        ],
+        "mathematical_verification": {
+            "two_node_duffing_oscillator": {
+                "constants": {
+                    "omega": 1224,
+                    "gamma": 1,
+                    "delta_omega": 266,
+                    "beta": 1021,
+                    "amplitude": 1000
+                },
+                "calculated_theta_m": 8682240000,
+                "current_b_a2": 1021000000,
+                "safety_margin": 7661240000,
+                "status": "PASSED"
+            }
+        },
+        "benchmark_integrity": {
+            "solver_reproducibility": "Deterministic (Zero Stochasticity)",
+            "validation_suite": "test_integer_constraints.py"
+        }
+    }
+}

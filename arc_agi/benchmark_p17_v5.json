@@ -1,0 +1,91 @@
+{
+  "split": "evaluation",
+  "n_attempted": 5,
+  "n_solved": 0,
+  "n_errors": 0,
+  "solve_rate": 0.0,
+  "avg_bra_resonance": 0.0,
+  "elapsed_total": 12.617646932601929,
+  "pattern_stats": {
+    "total": 182,
+    "by_class": {
+      "logic": 1,
+      "shape": 4,
+      "spatial": 177
+    },
+    "avg_train_score": 0.62,
+    "perfect_score": 72
+  },
+  "task_results": [
+    {
+      "task_id": "00576224",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/00576224.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUDIT] ILM DETERMINISTIC ENGINE TRACE\n==================================================\n\u2192 WHAT: Input grid contains 2 objects. Colors: [4, 6, 8] (bg: 6)\n\u2192 WHERE: Output shape differs from input. Derived integer scale geometry: x3, y3\n\u2192 WHEN: Color ontology invariant. Pure spatial transformation isolated.\n\u2192 WHY: Reconciling differentials via UPG Geometric Router...\n\u2192 HOW: Synthesizing AST from UPG Active Nodes: draw_line_until, einsum_affine, rot180, rot270\n\u2192 CoM REASONER: Deduced metric (0, 0, 25). Path: ['einsum_affine', 'einsum_color_map']\n\u2192 ALGEBRA SOLVER: Z3 Successfully mapped Diophantine constraints. Generated 1 mathematically exact AST sequences.\n   \u21b3 Ast injected: rot180(out)\n   \u21b3 Ast injected: rot180(out)\n   \u21b3 Ast injected: rot270(out)\n   \u21b3 Ast injected: rot270(out)\n==================================================",
+      "elapsed_sec": 0.44696712493896484,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "009d5c81",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/009d5c81.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.4,
+      "program": "def transform(grid):\n    step1 = largest_object(grid, 0)\n    return recolor(step1, 8, 2)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUDIT] ILM DETERMINISTIC ENGINE TRACE\n==================================================\n\u2192 WHAT: Input grid contains 2 objects. Colors: [0, 1, 8] (bg: 0)\n\u2192 WHERE: Coordinate geometry invariant (shape identical).\n\u2192 WHEN: Geometric color ontology changed. Suggests flood fill or recolor operations.\n\u2192 WHY: Reconciling differentials via UPG Geometric Router...\n\u2192 HOW: Synthesizing AST from UPG Active Nodes: convex_hull, border_objects, interior_objects, rank_by_size\n\u2192 CoM REASONER: Deduced metric (25, 25, 0). Path: ['einsum_affine', 'einsum_color_map']\n\u2192 SNN BRAIN: Neuromorphic routing triggered 2 ast sequence action potentials.\n\u2192 ALGEBRA SOLVER: Z3 Successfully mapped Diophantine constraints. Generated 1 mathematically exact AST sequences.\n   \u21b3 Ast injected: replace_colors(out, {1: 2, 8: 3})\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: border_objects(out, 0)\n   \u21b3 Ast injected: border_objects(out, 0)\n   \u21b3 Ast injected: interior_objects(out, 0)\n   \u21b3 Ast injected: interior_objects(out, 0)\n==================================================",
+      "elapsed_sec": 2.230527877807617,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "00dbd492",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/00dbd492.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUDIT] ILM DETERMINISTIC ENGINE TRACE\n==================================================\n\u2192 WHAT: Input grid contains 2 objects. Colors: [0, 2] (bg: 0)\n\u2192 WHERE: Coordinate geometry invariant (shape identical).\n\u2192 WHEN: Geometric color ontology changed. Suggests flood fill or recolor operations.\n\u2192 WHY: Reconciling differentials via UPG Geometric Router...\n\u2192 HOW: Synthesizing AST from UPG Active Nodes: outline, dilate, grid_and, grid_xor\n\u2192 CoM REASONER: Deduced metric (25, 25, 0). Path: ['einsum_affine', 'einsum_color_map']\n\u2192 SNN BRAIN: Neuromorphic routing triggered 2 ast sequence action potentials.\n\u2192 ALGEBRA SOLVER: Z3 Successfully mapped Diophantine constraints. Generated 1 mathematically exact AST sequences.\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: dilate(out, bg=0)\n   \u21b3 Ast injected: dilate(out, bg=0)\n==================================================",
+      "elapsed_sec": 1.0503113269805908,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "03560426",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/03560426.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUDIT] ILM DETERMINISTIC ENGINE TRACE\n==================================================\n\u2192 WHAT: Input grid contains 4 objects. Colors: [0, 1, 2, 3, 4] (bg: 0)\n\u2192 WHERE: Coordinate geometry invariant (shape identical).\n\u2192 WHEN: Color ontology invariant. Pure spatial transformation isolated.\n\u2192 WHY: Reconciling differentials via UPG Geometric Router...\n\u2192 HOW: Synthesizing AST from UPG Active Nodes: gravity_left, gravity_right, gravity_blocked, gravity_down\n\u2192 CoM REASONER: Deduced metric (0, 25, 0). Path: ['einsum_affine', 'einsum_color_map']\n\u2192 SNN BRAIN: Neuromorphic routing triggered 2 ast sequence action potentials.\n\u2192 ALGEBRA SOLVER: Z3 Successfully mapped Diophantine constraints. Generated 1 mathematically exact AST sequences.\n   \u21b3 Ast injected: outline(out, bg=0)\n   \u21b3 Ast injected: gravity(out, 'left', 0)\n   \u21b3 Ast injected: gravity(out, 'left', 0)\n   \u21b3 Ast injected: gravity(out, 'right', 0)\n   \u21b3 Ast injected: gravity(out, 'right', 0)\n   \u21b3 Ast injected: gravity(out, 'blocked', 0)\n   \u21b3 Ast injected: gravity(out, 'blocked', 0)\n   \u21b3 Ast injected: gravity(out, 'down', 0)\n   \u21b3 Ast injected: gravity(out, 'down', 0)\n==================================================",
+      "elapsed_sec": 1.3489959239959717,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "05a7bcf2",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/05a7bcf2.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUDIT] ILM DETERMINISTIC ENGINE TRACE\n==================================================\n\u2192 WHAT: Input grid contains 6 objects. Colors: [0, 2, 4, 8] (bg: 0)\n\u2192 WHERE: Coordinate geometry invariant (shape identical).\n\u2192 WHEN: Geometric color ontology changed. Suggests flood fill or recolor operations.\n\u2192 WHY: Reconciling differentials via UPG Geometric Router...\n\u2192 HOW: Synthesizing AST from UPG Active Nodes: convex_hull, border_objects, interior_objects, outline\n\u2192 CoM REASONER: Deduced metric (25, 25, 0). Path: ['einsum_affine', 'einsum_color_map']\n\u2192 SNN BRAIN: Neuromorphic routing triggered 2 ast sequence action potentials.\n\u2192 ALGEBRA SOLVER: Z3 Successfully mapped Diophantine constraints. Generated 1 mathematically exact AST sequences.\n   \u21b3 Ast injected: outline(obj_grid, bg=0)\n   \u21b3 Ast injected: outline(obj_grid, bg=0)\n   \u21b3 Ast injected: border_objects(obj_grid, 0)\n   \u21b3 Ast injected: border_objects(obj_grid, 0)\n   \u21b3 Ast injected: interior_objects(obj_grid, 0)\n   \u21b3 Ast injected: interior_objects(obj_grid, 0)\n   \u21b3 Ast injected: outline(obj_grid, bg=0)\n   \u21b3 Ast injected: outline(obj_grid, bg=0)\n==================================================",
+      "elapsed_sec": 7.538074016571045,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    }
+  ]
+}

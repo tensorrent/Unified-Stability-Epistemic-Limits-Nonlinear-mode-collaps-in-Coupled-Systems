@@ -1,0 +1,91 @@
+{
+  "split": "evaluation",
+  "n_attempted": 5,
+  "n_solved": 0,
+  "n_errors": 0,
+  "solve_rate": 0.0,
+  "avg_bra_resonance": 0.0,
+  "elapsed_total": 12.299988031387329,
+  "pattern_stats": {
+    "total": 180,
+    "by_class": {
+      "logic": 1,
+      "shape": 2,
+      "spatial": 177
+    },
+    "avg_train_score": 0.622,
+    "perfect_score": 72
+  },
+  "task_results": [
+    {
+      "task_id": "00576224",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/00576224.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUD",
+      "elapsed_sec": 0.08155083656311035,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "009d5c81",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/009d5c81.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.4,
+      "program": "def transform(grid):\n    step1 = largest_object(grid, 0)\n    return recolor(step1, 8, 2)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUD",
+      "elapsed_sec": 2.2437708377838135,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "00dbd492",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/00dbd492.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUD",
+      "elapsed_sec": 1.0523161888122559,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "03560426",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/03560426.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUD",
+      "elapsed_sec": 1.362595796585083,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    },
+    {
+      "task_id": "05a7bcf2",
+      "split": "/Users/coo-koba42/.arc_cache/evaluation/05a7bcf2.json",
+      "solved": false,
+      "n_test": 1,
+      "n_correct": 0,
+      "bra_resonance": 0,
+      "train_score": 0.0,
+      "program": "def transform(grid):\n    return grid_copy(grid)",
+      "reasoning": "\n    def transform(grid):\n        \"\"\"\n        [SEGGCI: 100% I/O saved | seed]\n        Fallback generation. Relying on UPG and BRA integer-only routing.\n        \"\"\"\n        import copy\n        return copy.deepcopy(grid)\n    \n\n[LAC AUDIT]:\n\n==================================================\n  [LAC AUD",
+      "elapsed_sec": 7.55679988861084,
+      "error": "",
+      "vexel_root": "0x0000000000000000"
+    }
+  ]
+}
